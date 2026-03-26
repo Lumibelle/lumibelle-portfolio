@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Lumibelle.dev</title>
 
-  <!-- FONTES -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
@@ -28,14 +27,6 @@
       text-shadow: 0 0 15px rgba(201,162,63,0.6);
     }
 
-    p {
-      font-size: 1.1rem;
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-
     nav a {
       margin: 0 15px;
       text-decoration: none;
@@ -56,9 +47,9 @@
 
     h2 {
       color: #c9a23f;
-      margin-bottom: 15px;
     }
 
+    /* ✨ CARDS MELHORADOS */
     .projects {
       display: flex;
       justify-content: center;
@@ -73,12 +64,31 @@
       border-radius: 20px;
       width: 240px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: 0.3s;
+      transition: 0.4s;
       border: 1px solid #e0c36c;
+      position: relative;
+      overflow: hidden;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    /* 💡 efeito de luz no card */
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.4), transparent);
+      top: -50%;
+      left: -50%;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     button {
@@ -122,11 +132,19 @@
       transform: scale(1.1);
     }
 
+    /* 💼 CONTATO */
+    .contact a {
+      display: block;
+      margin: 10px;
+      color: #7a5c2e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     footer {
       margin-top: 40px;
       padding: 20px;
       font-size: 0.9rem;
-      color: #7a5c2e;
     }
 
     @keyframes fadeIn {
@@ -139,6 +157,7 @@
         transform: translateY(0);
       }
     }
+
   </style>
 </head>
 
@@ -146,20 +165,20 @@
 
 <header>
   <h1>Lumibelle ✨</h1>
-  <p>Desenvolvedora Front-End em formação | Criando interfaces modernas e funcionais</p>
+  <p>Front-End Developer in training | Creating modern and functional interfaces</p>
 
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
     <a href="#moodboard">Moodboard</a>
+    <a href="#contato">Contato</a>
   </nav>
 </header>
 
 <section id="sobre">
   <h2>Sobre mim</h2>
   <p>
-    Desenvolvedora Front-End em formação, com foco na criação de interfaces modernas, funcionais e com boa experiência do usuário. 
-    Possuo facilidade de aprendizado, atenção aos detalhes e interesse constante em evolução na área de tecnologia.
+    Desenvolvedora Front-End em formação, com foco na criação de interfaces modernas, funcionais e com boa experiência do usuário.
   </p>
 </section>
 
@@ -169,12 +188,12 @@
   <div class="projects">
     <div class="card">
       <h3>🌸 Portfólio</h3>
-      <p>Desenvolvimento de site pessoal utilizando HTML e CSS, com foco em estrutura, design e responsividade.</p>
+      <p>Website desenvolvido com HTML e CSS.</p>
     </div>
 
     <div class="card">
       <h3>🌹 Moodboard</h3>
-      <p>Aplicação interativa em JavaScript para manipulação dinâmica de elementos e criação de painéis visuais.</p>
+      <p>Aplicação interativa com JavaScript.</p>
     </div>
   </div>
 </section>
@@ -186,6 +205,16 @@
   <button onclick="addImage()">Adicionar</button>
 
   <div class="grid" id="grid"></div>
+</section>
+
+<section id="contato">
+  <h2>Contato</h2>
+
+  <div class="contact">
+    <a href="#">LinkedIn (adicione aqui)</a>
+    <a href="#">GitHub (adicione aqui)</a>
+    <a href="#">Email (adicione aqui)</a>
+  </div>
 </section>
 
 <footer>
