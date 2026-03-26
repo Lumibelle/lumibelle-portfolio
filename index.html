@@ -1,235 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Lumibelle.dev</title>
+<meta charset="UTF-8">
+<title>Lumibelle</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: serif;
+  background: #0d0d14;
+  color: #e8d9a8;
+  overflow-x: hidden;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(180deg, #fff8e7, #f5d27a, #fff8e7);
-      color: #5a4a2f;
-    }
+/* 🕯️ EFEITO LUZ */
+.light {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,223,120,0.25), transparent 70%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      animation: fadeIn 1s ease;
-    }
+/* HEADER */
+header {
+  text-align: center;
+  padding: 80px 20px;
+}
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      color: #c9a23f;
-      text-shadow: 0 0 15px rgba(201,162,63,0.6);
-    }
+h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #7a5c2e;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+.subtitle {
+  opacity: 0.8;
+}
 
-    nav a:hover {
-      color: #c9a23f;
-    }
+/* BOTÃO IDIOMA */
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
 
-    section {
-      padding: 50px 20px;
-      text-align: center;
-      animation: fadeIn 1s ease;
-    }
+button {
+  background: transparent;
+  border: 1px solid #e8d9a8;
+  color: #e8d9a8;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 
-    h2 {
-      color: #c9a23f;
-    }
+/* SEÇÕES */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    /* ✨ CARDS MELHORADOS */
-    .projects {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.card {
+  border: 1px solid rgba(232,217,168,0.3);
+  margin: 20px auto;
+  padding: 20px;
+  width: 260px;
+  transition: 0.3s;
+}
 
-    .card {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
-      margin: 15px;
-      padding: 25px;
-      border-radius: 20px;
-      width: 240px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: 0.4s;
-      border: 1px solid #e0c36c;
-      position: relative;
-      overflow: hidden;
-    }
+.card:hover {
+  background: rgba(255,255,255,0.05);
+  transform: scale(1.05);
+}
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-    }
-
-    /* 💡 efeito de luz no card */
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.4), transparent);
-      top: -50%;
-      left: -50%;
-      opacity: 0;
-      transition: 0.4s;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      background: #e0c36c;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #c9a23f;
-      transform: scale(1.05);
-    }
-
-    input {
-      padding: 10px;
-      width: 250px;
-      border-radius: 10px;
-      border: 1px solid #e0c36c;
-    }
-
-    .grid {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    img {
-      width: 140px;
-      margin: 10px;
-      border-radius: 15px;
-      transition: 0.3s;
-      border: 2px solid #e0c36c;
-    }
-
-    img:hover {
-      transform: scale(1.1);
-    }
-
-    /* 💼 CONTATO */
-    .contact a {
-      display: block;
-      margin: 10px;
-      color: #7a5c2e;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-  </style>
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 0.9rem;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>Lumibelle ✨</h1>
-  <p>Front-End Developer in training | Creating modern and functional interfaces</p>
+<div class="light" id="light"></div>
 
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#moodboard">Moodboard</a>
-    <a href="#contato">Contato</a>
-  </nav>
+<div class="lang">
+  <button onclick="setLang('pt')">PT</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
+
+<header>
+  <h1>Lumibelle</h1>
+  <p class="subtitle" id="subtitle">Construindo experiências digitais com elegância e precisão</p>
 </header>
 
-<section id="sobre">
-  <h2>Sobre mim</h2>
-  <p>
-    Desenvolvedora Front-End em formação, com foco na criação de interfaces modernas, funcionais e com boa experiência do usuário.
+<section>
+  <h2 id="aboutTitle">Sobre</h2>
+  <p id="aboutText">
+    Desenvolvedora em formação, criando interfaces e sistemas com foco em qualidade, estética e funcionalidade.
   </p>
 </section>
 
-<section id="projetos">
-  <h2>Meus Projetos</h2>
+<section>
+  <h2 id="projectTitle">Projetos</h2>
 
-  <div class="projects">
-    <div class="card">
-      <h3>🌸 Portfólio</h3>
-      <p>Website desenvolvido com HTML e CSS.</p>
-    </div>
+  <div class="card">
+    <h3>Portfolio</h3>
+    <p id="proj1">Site desenvolvido com HTML, CSS e JavaScript.</p>
+  </div>
 
-    <div class="card">
-      <h3>🌹 Moodboard</h3>
-      <p>Aplicação interativa com JavaScript.</p>
-    </div>
+  <div class="card">
+    <h3>Moodboard</h3>
+    <p id="proj2">Aplicação interativa para organização visual de ideias.</p>
   </div>
 </section>
 
-<section id="moodboard">
-  <h2>🌹 Moodboard Lumibelle</h2>
-
-  <input type="text" id="imgUrl" placeholder="Cole o link da imagem">
-  <button onclick="addImage()">Adicionar</button>
-
-  <div class="grid" id="grid"></div>
-</section>
-
-<section id="contato">
-  <h2>Contato</h2>
-
-  <div class="contact">
-    <a href="#">LinkedIn (adicione aqui)</a>
-    <a href="#">GitHub (adicione aqui)</a>
-    <a href="#">Email (adicione aqui)</a>
-  </div>
+<section>
+  <h2 id="contactTitle">Contato</h2>
+  <p>Email: aqui.izara@gmail.com</p>
 </section>
 
 <footer>
-  ✨ Lumibelle.dev — Portfólio desenvolvido por Izabella Ramos
+  Lumibelle.dev — Digital Craft
 </footer>
 
 <script>
-  function addImage() {
-    let url = document.getElementById("imgUrl").value;
+/* LUZ SEGUINDO MOUSE */
+document.addEventListener("mousemove", (e) => {
+  const light = document.getElementById("light");
+  light.style.left = e.pageX + "px";
+  light.style.top = e.pageY + "px";
+});
 
-    let img = document.createElement("img");
-    img.src = url;
-
-    document.getElementById("grid").appendChild(img);
+/* TROCA DE IDIOMA */
+function setLang(lang) {
+  if(lang === "en") {
+    document.getElementById("subtitle").innerText = "Building digital experiences with elegance and precision";
+    document.getElementById("aboutTitle").innerText = "About";
+    document.getElementById("aboutText").innerText = "Developer in training, creating interfaces and systems focused on quality, aesthetics and functionality.";
+    document.getElementById("projectTitle").innerText = "Projects";
+    document.getElementById("proj1").innerText = "Website built with HTML, CSS and JavaScript.";
+    document.getElementById("proj2").innerText = "Interactive application for visual idea organization.";
+    document.getElementById("contactTitle").innerText = "Contact";
+  } else {
+    document.getElementById("subtitle").innerText = "Construindo experiências digitais com elegância e precisão";
+    document.getElementById("aboutTitle").innerText = "Sobre";
+    document.getElementById("aboutText").innerText = "Desenvolvedora em formação, criando interfaces e sistemas com foco em qualidade, estética e funcionalidade.";
+    document.getElementById("projectTitle").innerText = "Projetos";
+    document.getElementById("proj1").innerText = "Site desenvolvido com HTML, CSS e JavaScript.";
+    document.getElementById("proj2").innerText = "Aplicação interativa para organização visual de ideias.";
+    document.getElementById("contactTitle").innerText = "Contato";
   }
+}
 </script>
 
 </body>
