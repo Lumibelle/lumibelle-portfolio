@@ -2,45 +2,72 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Lumibelle</title>
+
+<title>Lumibelle | Developer</title>
+
+<meta name="description" content="Frontend Developer portfolio focused on modern interfaces, performance and user experience.">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 body {
   margin: 0;
-  font-family: serif;
-  background: #0d0d14;
+  background: linear-gradient(180deg, #0a1f44, #020617);
   color: #e8d9a8;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  transition: 0.5s;
 }
 
-/* 🕯️ EFEITO LUZ */
+/* 🌈 LUZ VITRAL */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 0, 120, 0.08), transparent 40%),
+    radial-gradient(circle at 70% 30%, rgba(0, 200, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(255, 200, 0, 0.08), transparent 40%);
+}
+
+/* 🕯️ LUZ MOUSE */
 .light {
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255,223,120,0.25), transparent);
   pointer-events: none;
-  background: radial-gradient(circle, rgba(255,223,120,0.25), transparent 70%);
   transform: translate(-50%, -50%);
-  mix-blend-mode: screen;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
 }
 
 h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
 }
 
 .subtitle {
+  font-family: 'Cinzel', serif;
+  margin-top: 10px;
   opacity: 0.8;
 }
 
-/* BOTÃO IDIOMA */
-.lang {
+/* STACK */
+.stack {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* BOTÕES */
+.top-buttons {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -50,35 +77,55 @@ button {
   background: transparent;
   border: 1px solid #e8d9a8;
   color: #e8d9a8;
-  padding: 5px 10px;
+  padding: 6px 10px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
 /* SEÇÕES */
 section {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
+h2 {
+  font-family: 'Cinzel', serif;
+}
+
+/* CARDS */
 .card {
-  border: 1px solid rgba(232,217,168,0.3);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
   margin: 20px auto;
-  padding: 20px;
-  width: 260px;
-  transition: 0.3s;
+  padding: 25px;
+  width: 280px;
+  border-radius: 15px;
+  transition: 0.4s;
 }
 
 .card:hover {
-  background: rgba(255,255,255,0.05);
   transform: scale(1.05);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 40px;
+  padding: 50px;
   font-size: 0.9rem;
 }
+
+/* 🌞 MODO ILUMINADO */
+.light-mode {
+  background: #f5f5f5;
+  color: #222;
+}
+
+.light-mode .card {
+  background: #fff;
+  color: #000;
+}
+
 </style>
 </head>
 
@@ -86,20 +133,29 @@ footer {
 
 <div class="light" id="light"></div>
 
-<div class="lang">
+<div class="top-buttons">
   <button onclick="setLang('pt')">PT</button>
   <button onclick="setLang('en')">EN</button>
+  <button onclick="toggleLight()">✨</button>
 </div>
 
 <header>
   <h1>Lumibelle</h1>
-  <p class="subtitle" id="subtitle">Construindo experiências digitais com elegância e precisão</p>
+
+  <p class="subtitle" id="subtitle">
+    Fullstack Developer in training — building scalable and elegant digital solutions
+  </p>
+
+  <div class="stack">
+    HTML • CSS • JavaScript • GitHub
+  </div>
 </header>
 
 <section>
   <h2 id="aboutTitle">Sobre</h2>
   <p id="aboutText">
-    Desenvolvedora em formação, criando interfaces e sistemas com foco em qualidade, estética e funcionalidade.
+    Minha abordagem ao desenvolvimento de software é baseada em estrutura, clareza e escalabilidade.
+    Desenvolvo interfaces modernas e sistemas com foco em experiência do usuário e evolução contínua.
   </p>
 </section>
 
@@ -107,14 +163,32 @@ footer {
   <h2 id="projectTitle">Projetos</h2>
 
   <div class="card">
-    <h3>Portfolio</h3>
-    <p id="proj1">Site desenvolvido com HTML, CSS e JavaScript.</p>
+    <h3>Portfolio Website</h3>
+    <p>
+      <strong>Foundation:</strong> Site para apresentação profissional.<br>
+      <strong>Structure:</strong> HTML, CSS e JavaScript.<br>
+      <strong>Interface:</strong> Design responsivo focado em UX.
+    </p>
   </div>
 
   <div class="card">
-    <h3>Moodboard</h3>
-    <p id="proj2">Aplicação interativa para organização visual de ideias.</p>
+    <h3>Moodboard App</h3>
+    <p>
+      <strong>Foundation:</strong> Organização visual de ideias.<br>
+      <strong>Structure:</strong> JavaScript interativo.<br>
+      <strong>Interface:</strong> Interface dinâmica e intuitiva.
+    </p>
   </div>
+
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <p>
+    Frontend: HTML, CSS, JavaScript<br>
+    Design: UI/UX, Responsividade<br>
+    Tools: GitHub, Versionamento
+  </p>
 </section>
 
 <section>
@@ -123,37 +197,40 @@ footer {
 </section>
 
 <footer>
-  Lumibelle.dev — Digital Craft
+  Lumibelle.dev ✨<br><br>
+  Desenvolvido por Izabella Ramos
 </footer>
 
 <script>
-/* LUZ SEGUINDO MOUSE */
+
+/* LUZ */
 document.addEventListener("mousemove", (e) => {
-  const light = document.getElementById("light");
   light.style.left = e.pageX + "px";
   light.style.top = e.pageY + "px";
 });
 
-/* TROCA DE IDIOMA */
+/* IDIOMA */
 function setLang(lang) {
   if(lang === "en") {
-    document.getElementById("subtitle").innerText = "Building digital experiences with elegance and precision";
-    document.getElementById("aboutTitle").innerText = "About";
-    document.getElementById("aboutText").innerText = "Developer in training, creating interfaces and systems focused on quality, aesthetics and functionality.";
-    document.getElementById("projectTitle").innerText = "Projects";
-    document.getElementById("proj1").innerText = "Website built with HTML, CSS and JavaScript.";
-    document.getElementById("proj2").innerText = "Interactive application for visual idea organization.";
-    document.getElementById("contactTitle").innerText = "Contact";
+    subtitle.innerText = "Fullstack Developer in training — building scalable and elegant digital solutions";
+    aboutTitle.innerText = "About";
+    aboutText.innerText = "My approach is based on structure, clarity and scalability. I develop modern interfaces focused on user experience.";
+    projectTitle.innerText = "Projects";
+    contactTitle.innerText = "Contact";
   } else {
-    document.getElementById("subtitle").innerText = "Construindo experiências digitais com elegância e precisão";
-    document.getElementById("aboutTitle").innerText = "Sobre";
-    document.getElementById("aboutText").innerText = "Desenvolvedora em formação, criando interfaces e sistemas com foco em qualidade, estética e funcionalidade.";
-    document.getElementById("projectTitle").innerText = "Projetos";
-    document.getElementById("proj1").innerText = "Site desenvolvido com HTML, CSS e JavaScript.";
-    document.getElementById("proj2").innerText = "Aplicação interativa para organização visual de ideias.";
-    document.getElementById("contactTitle").innerText = "Contato";
+    subtitle.innerText = "Fullstack Developer em formação — construindo soluções digitais elegantes e escaláveis";
+    aboutTitle.innerText = "Sobre";
+    aboutText.innerText = "Minha abordagem é baseada em estrutura, clareza e escalabilidade. Desenvolvo interfaces modernas com foco em experiência do usuário.";
+    projectTitle.innerText = "Projetos";
+    contactTitle.innerText = "Contato";
   }
 }
+
+/* BOTÃO LUZ */
+function toggleLight() {
+  document.body.classList.toggle("light-mode");
+}
+
 </script>
 
 </body>
